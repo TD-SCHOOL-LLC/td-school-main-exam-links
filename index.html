@@ -178,10 +178,6 @@ $('addBtn').onclick = async () => {
 
 (async function init(){
   $('newLevel').innerHTML = LEVELS.map(l => `<option>${esc(l)}</option>`).join('');
-  if(!LINKS_API){
-    $('warn').hidden = false;
-    $('warn').textContent = '⚠️ Test rejimi: linklər yalnız bu brauzerdə saxlanılır. Hamıya görünməsi üçün Google Apps Script bağla (LINKS_API).';
-  }
   render();
   try{ await loadLinks(); }catch(e){ $('warn').hidden = false; $('warn').textContent = '⚠️ Linklər yüklənmədi. İnternet bağlantısını və LINKS_API linkini yoxla.'; }
   render();
